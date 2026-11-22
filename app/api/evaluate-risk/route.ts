@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { EvaluateRiskRequestSchema } from "@/lib/validations";
 import { evaluateOrderRisk } from "@/lib/risk-engine/evaluator";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();

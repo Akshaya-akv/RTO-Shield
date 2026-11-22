@@ -3,6 +3,8 @@ import { fetchAllOrders, getActiveRiskThreshold, updateActiveRiskThreshold } fro
 import { MerchantAnalytics } from "@/types";
 import { UpdateSettingsRequestSchema } from "@/lib/validations";
 
+export const dynamic = "force-dynamic";
+
 export async function GET() {
   try {
     const orders = await fetchAllOrders();

@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { resetDatabaseDemo } from "@/lib/supabase/server";
 
+export const dynamic = "force-dynamic";
+
 export async function POST() {
   try {
     const result = await resetDatabaseDemo();

@@ -41,9 +41,9 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ score, riskLevel, size = 1
   const strokeDashoffset = arcLength - (arcLength * (animatedScore / 100));
 
   const getColor = () => {
-    if (animatedScore >= 75) return { stroke: "#EF4444", text: "text-rose-400", glow: "rgba(239, 68, 68, 0.45)" };
-    if (animatedScore >= 40) return { stroke: "#F59E0B", text: "text-amber-400", glow: "rgba(245, 158, 11, 0.45)" };
-    return { stroke: "#22C55E", text: "text-emerald-400", glow: "rgba(34, 197, 94, 0.45)" };
+    if (animatedScore >= 75) return { stroke: "#EF4444", text: "text-rose-400" };
+    if (animatedScore >= 40) return { stroke: "#F59E0B", text: "text-amber-400" };
+    return { stroke: "#10B981", text: "text-emerald-400" };
   };
 
   const theme = getColor();
@@ -62,7 +62,7 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ score, riskLevel, size = 1
           cy={size / 2}
           r={radius}
           fill="none"
-          stroke="rgba(255, 255, 255, 0.08)"
+          stroke="rgba(245, 242, 230, 0.08)"
           strokeWidth={strokeWidth}
           strokeDasharray={`${arcLength} ${circumference}`}
           strokeLinecap="round"
@@ -86,14 +86,14 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ score, riskLevel, size = 1
 
       {/* Center Score Readout */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center pt-2 font-mono">
-        <span className="text-4xl font-bold tracking-tight text-zinc-100 tabular-nums">
+        <span className="text-4xl font-bold tracking-tight text-bone tabular-nums font-display">
           {animatedScore}
         </span>
-        <span className="text-[10px] uppercase text-zinc-500 tracking-wider mt-0.5">
+        <span className="text-[10px] uppercase text-greige tracking-[0.08em] mt-0.5">
           / 100 RISK
         </span>
         <span
-          className={`text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded border mt-1.5 ${
+          className={`text-[10px] font-medium uppercase tracking-[0.08em] px-2 py-0.5 rounded border mt-1.5 ${
             riskLevel === "HIGH"
               ? "bg-rose-500/10 text-rose-400 border-rose-500/20"
               : riskLevel === "MEDIUM"

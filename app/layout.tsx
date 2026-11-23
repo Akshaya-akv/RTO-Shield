@@ -3,8 +3,8 @@ import "./globals.css";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "RTO-Shield | AI-Powered Return-to-Origin Prevention Platform",
-  description: "Stop Fake Orders. Save Real Revenue. Intelligent AI risk scoring, COD restriction, and prepaid conversion platform for D2C e-commerce.",
+  title: "rto-shield™ | autonomous return-to-origin prevention",
+  description: "editorial techwear grade rto prevention for indian d2c brands. high-precision risk engine, instant address verification, and dynamic cod policy.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className="bg-background text-foreground antialiased min-h-screen selection:bg-zinc-800 selection:text-zinc-100"
+        className="bg-canvas text-foreground font-sans antialiased min-h-screen selection:bg-wine selection:text-bone"
         suppressHydrationWarning
       >
         {children}
@@ -27,9 +27,9 @@ export default function RootLayout({
           theme="dark"
           toastOptions={{
             style: {
-              background: "#121215",
-              border: "1px solid rgba(255, 255, 255, 0.1)",
-              color: "#EDEDEC",
+              background: "#240B11",
+              border: "1px solid rgba(245, 242, 230, 0.15)",
+              color: "#F5F2E6",
             },
           }}
         />

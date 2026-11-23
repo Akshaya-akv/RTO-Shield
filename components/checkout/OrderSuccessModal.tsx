@@ -24,37 +24,37 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-canvas/80 backdrop-blur-sm">
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 8 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 8 }}
           transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
-          className="w-full max-w-lg rounded-lg bg-zinc-950 border border-white/10 p-6 sm:p-7 shadow-2xl relative"
+          className="w-full max-w-lg rounded-xl bg-surface border border-white/15 p-6 sm:p-7 shadow-2xl relative font-sans"
         >
           <div className="flex flex-col items-center text-center">
             <CheckCircle2 className="w-10 h-10 text-emerald-400 mb-3" strokeWidth={1.5} />
 
-            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-zinc-900 text-zinc-400 border border-white/[0.08] mb-2 tabular-nums">
+            <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-canvas text-greige border border-white/10 mb-2 tabular-nums tracking-wider">
               ORDER CONFIRMED #{order.id.slice(0, 8)}
             </span>
 
-            <h3 className="text-xl font-bold text-zinc-100 mb-1">
-              Thank You, {order.customer_name}
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-bone mb-1 lowercase">
+              thank you, {order.customer_name}
             </h3>
-            <p className="text-xs text-zinc-400 mb-5 max-w-sm">
-              Your test order has been registered in database telemetry and evaluated by RTO-Shield.
+            <p className="text-xs text-greige mb-5 max-w-sm font-sans leading-relaxed">
+              Your test order has been registered in database telemetry and evaluated by rto-shield.
             </p>
 
             {/* Details Card */}
-            <div className="w-full rounded-md bg-zinc-900/60 border border-white/[0.06] p-4 text-left space-y-2.5 mb-5 font-mono text-xs">
-              <div className="flex justify-between items-center pb-2 border-b border-white/[0.06]">
-                <span className="text-zinc-400 font-sans">Payment Method:</span>
+            <div className="w-full rounded-lg bg-canvas/80 border border-white/10 p-4 text-left space-y-2.5 mb-5 font-mono text-xs">
+              <div className="flex justify-between items-center pb-2 border-b border-white/10">
+                <span className="text-greige font-sans">Payment Method:</span>
                 <span
                   className={`font-semibold px-2 py-0.5 rounded text-[11px] ${
                     isPrepaidConverted
                       ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"
-                      : "bg-zinc-800 text-zinc-200 border border-white/10"
+                      : "bg-surface text-bone border border-white/10"
                   }`}
                 >
                   {order.final_payment_method}
@@ -62,14 +62,14 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-zinc-400 font-sans">Total Paid:</span>
-                <span className="text-zinc-100 font-bold tabular-nums">
+                <span className="text-greige font-sans">Total Paid:</span>
+                <span className="text-bone font-bold tabular-nums">
                   {formatCurrency(Number(order.cart_value) - (isPrepaidConverted ? 50 : 0))}
                 </span>
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-zinc-400 font-sans">Evaluated Risk Score:</span>
+                <span className="text-greige font-sans">Evaluated Risk Score:</span>
                 <span
                   className={`font-bold tabular-nums ${
                     order.risk_score >= 75
@@ -84,8 +84,8 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
               </div>
 
               <div className="flex justify-between items-center">
-                <span className="text-zinc-400 font-sans">Delivery Node:</span>
-                <span className="text-zinc-300 truncate max-w-[200px]">
+                <span className="text-greige font-sans">Delivery Node:</span>
+                <span className="text-bone truncate max-w-[200px]">
                   {order.city}, {order.pincode}
                 </span>
               </div>
@@ -98,10 +98,10 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
             </div>
 
             {/* CTAs */}
-            <div className="w-full flex flex-col sm:flex-row gap-2.5">
+            <div className="w-full flex flex-col sm:flex-row gap-2.5 font-sans">
               <Link
                 href="/dashboard"
-                className="flex-1 py-2.5 px-4 rounded-md font-medium text-xs bg-zinc-100 text-zinc-950 hover:bg-zinc-200 transition-colors flex items-center justify-center gap-1.5"
+                className="flex-1 py-2.5 px-4 rounded-full font-medium text-xs bg-bone text-canvas hover:bg-bone-hover transition-colors flex items-center justify-center gap-1.5 shadow-md"
               >
                 <LayoutDashboard className="w-3.5 h-3.5" strokeWidth={1.5} />
                 <span>Inspect in Merchant Dashboard</span>
@@ -110,7 +110,7 @@ export const OrderSuccessModal: React.FC<OrderSuccessModalProps> = ({
 
               <button
                 onClick={onClose}
-                className="py-2.5 px-4 rounded-md text-xs font-medium text-zinc-300 hover:text-white bg-zinc-900 border border-white/[0.08] hover:border-white/20 transition-colors"
+                className="py-2.5 px-4 rounded-full text-xs font-medium text-bone hover:text-white bg-surface border border-white/15 hover:bg-surface-hover hover:border-white/30 transition-colors"
               >
                 Back to Storefront
               </button>

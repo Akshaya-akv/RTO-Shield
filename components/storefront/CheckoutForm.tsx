@@ -34,30 +34,30 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
 }) => {
   return (
     <form onSubmit={onSubmit} className="space-y-6" autoComplete="off" suppressHydrationWarning>
-      <div className="rounded-lg border border-white/[0.08] bg-zinc-900/30 p-5 sm:p-6" suppressHydrationWarning>
+      <div className="rounded-xl border border-white/10 bg-surface p-5 sm:p-6 shadow-sm" suppressHydrationWarning>
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-white/[0.06] mb-5">
+        <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
           <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-zinc-400" strokeWidth={1.5} />
+            <MapPin className="w-4 h-4 text-greige" strokeWidth={1.5} />
             <div>
-              <h3 className="text-sm font-semibold text-zinc-100">Shipping & Contact Information</h3>
-              <p className="text-xs text-zinc-400 mt-0.5">Enter delivery destination for real-time risk evaluation</p>
+              <h3 className="font-display text-sm font-semibold text-bone lowercase">shipping & contact information</h3>
+              <p className="font-sans text-xs text-greige mt-0.5">Enter delivery destination for real-time risk evaluation</p>
             </div>
           </div>
-          <span className="text-[10px] font-mono text-zinc-400 bg-zinc-950 px-2 py-0.5 rounded border border-white/[0.06]">
+          <span className="text-[10px] font-mono text-greige bg-canvas px-2 py-0.5 rounded border border-white/10 uppercase tracking-wider">
             SSL 256-Bit
           </span>
         </div>
 
         {/* Form Fields Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5 font-sans">
           {/* Customer Name */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               Full Name <span className="text-rose-400">*</span>
             </label>
             <div className="relative">
-              <User className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-2.5" strokeWidth={1.5} />
+              <User className="w-3.5 h-3.5 text-greige/60 absolute left-3 top-2.5" strokeWidth={1.5} />
               <input
                 type="text"
                 required
@@ -66,18 +66,18 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.customerName}
                 onChange={(e) => onInputChange("customerName", e.target.value)}
                 placeholder="e.g. Rahul Sharma"
-                className="w-full bg-zinc-950 border border-white/10 rounded-md pl-8 pr-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors"
+                className="w-full bg-surface-input border border-white/10 rounded-lg pl-8 pr-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors"
               />
             </div>
           </div>
 
           {/* Phone Number */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               10-Digit Mobile Number <span className="text-rose-400">*</span>
             </label>
             <div className="relative">
-              <Phone className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-2.5" strokeWidth={1.5} />
+              <Phone className="w-3.5 h-3.5 text-greige/60 absolute left-3 top-2.5" strokeWidth={1.5} />
               <input
                 type="tel"
                 required
@@ -86,18 +86,18 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.phone}
                 onChange={(e) => onInputChange("phone", e.target.value)}
                 placeholder="e.g. 9876543210"
-                className="w-full bg-zinc-950 border border-white/10 rounded-md pl-8 pr-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors font-mono tabular-nums"
+                className="w-full bg-surface-input border border-white/10 rounded-lg pl-8 pr-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors font-mono tabular-nums"
               />
             </div>
           </div>
 
           {/* House / Flat Number */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               Flat / House / Premise No.
             </label>
             <div className="relative">
-              <Building className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-2.5" strokeWidth={1.5} />
+              <Building className="w-3.5 h-3.5 text-greige/60 absolute left-3 top-2.5" strokeWidth={1.5} />
               <input
                 type="text"
                 autoComplete="off"
@@ -105,18 +105,18 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.houseFlat}
                 onChange={(e) => onInputChange("houseFlat", e.target.value)}
                 placeholder="e.g. Flat 402, Green Glen Layout"
-                className="w-full bg-zinc-950 border border-white/10 rounded-md pl-8 pr-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors"
+                className="w-full bg-surface-input border border-white/10 rounded-lg pl-8 pr-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors"
               />
             </div>
           </div>
 
           {/* Street / Area */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               Street / Area / Colony <span className="text-rose-400">*</span>
             </label>
             <div className="relative">
-              <Navigation className="w-3.5 h-3.5 text-zinc-500 absolute left-3 top-2.5" strokeWidth={1.5} />
+              <Navigation className="w-3.5 h-3.5 text-greige/60 absolute left-3 top-2.5" strokeWidth={1.5} />
               <input
                 type="text"
                 required
@@ -125,14 +125,14 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
                 value={formData.streetArea}
                 onChange={(e) => onInputChange("streetArea", e.target.value)}
                 placeholder="e.g. Bellandur Outer Ring Road"
-                className="w-full bg-zinc-950 border border-white/10 rounded-md pl-8 pr-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors"
+                className="w-full bg-surface-input border border-white/10 rounded-lg pl-8 pr-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors"
               />
             </div>
           </div>
 
           {/* Landmark */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               Landmark (Optional)
             </label>
             <input
@@ -142,13 +142,13 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
               value={formData.landmark || ""}
               onChange={(e) => onInputChange("landmark", e.target.value)}
               placeholder="e.g. Near EcoSpace Tech Park"
-              className="w-full bg-zinc-950 border border-white/10 rounded-md px-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors"
+              className="w-full bg-surface-input border border-white/10 rounded-lg px-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors"
             />
           </div>
 
           {/* 6-digit Pincode */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               6-Digit Indian Pincode <span className="text-rose-400">*</span>
             </label>
             <input
@@ -160,13 +160,13 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
               value={formData.pincode}
               onChange={(e) => onInputChange("pincode", e.target.value)}
               placeholder="e.g. 560103"
-              className="w-full bg-zinc-950 border border-white/10 rounded-md px-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors font-mono tabular-nums"
+              className="w-full bg-surface-input border border-white/10 rounded-lg px-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors font-mono tabular-nums"
             />
           </div>
 
           {/* City */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               City <span className="text-rose-400">*</span>
             </label>
             <input
@@ -177,13 +177,13 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
               value={formData.city}
               onChange={(e) => onInputChange("city", e.target.value)}
               placeholder="e.g. Bengaluru"
-              className="w-full bg-zinc-950 border border-white/10 rounded-md px-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors"
+              className="w-full bg-surface-input border border-white/10 rounded-lg px-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors"
             />
           </div>
 
           {/* State */}
           <div>
-            <label className="block text-xs text-zinc-300 mb-1">
+            <label className="block text-xs text-greige mb-1">
               State <span className="text-rose-400">*</span>
             </label>
             <input
@@ -194,25 +194,25 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
               value={formData.state}
               onChange={(e) => onInputChange("state", e.target.value)}
               placeholder="e.g. Karnataka"
-              className="w-full bg-zinc-950 border border-white/10 rounded-md px-3 py-2 text-xs text-zinc-100 placeholder-zinc-500 focus:border-zinc-400 focus:outline-none transition-colors"
+              className="w-full bg-surface-input border border-white/10 rounded-lg px-3 py-2 text-xs text-bone placeholder:text-greige/50 focus:border-bone/50 focus:ring-1 focus:ring-bone/20 focus:outline-none transition-colors"
             />
           </div>
         </div>
 
         {/* Payment Method Selector */}
-        <div className="pt-4 border-t border-white/[0.06]">
-          <label className="block text-xs font-semibold text-zinc-200 mb-2.5 flex items-center gap-2">
-            <CreditCard className="w-3.5 h-3.5 text-zinc-400" strokeWidth={1.5} />
+        <div className="pt-4 border-t border-white/10 font-sans">
+          <label className="block text-xs font-semibold text-bone mb-2.5 flex items-center gap-2">
+            <CreditCard className="w-3.5 h-3.5 text-greige" strokeWidth={1.5} />
             <span>Select Payment Method</span>
           </label>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-5">
             {/* COD Option */}
             <label
-              className={`p-3 rounded-md border flex items-center justify-between cursor-pointer transition-colors ${
+              className={`p-3 rounded-lg border flex items-center justify-between cursor-pointer transition-colors ${
                 formData.paymentMethod === "COD"
-                  ? "bg-zinc-800/80 border-white/30 text-zinc-100"
-                  : "bg-zinc-950/40 border-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60"
+                  ? "bg-surface-hover border-bone/30 text-bone shadow-sm"
+                  : "bg-canvas/60 border-white/10 text-greige hover:text-bone hover:bg-surface-hover/50"
               }`}
             >
               <div className="flex items-center gap-2.5">
@@ -223,29 +223,29 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
                   suppressHydrationWarning
                   checked={formData.paymentMethod === "COD"}
                   onChange={() => onInputChange("paymentMethod", "COD")}
-                  className="accent-zinc-200 w-3.5 h-3.5"
+                  className="accent-[#F5F2E6] w-3.5 h-3.5"
                 />
                 <div>
-                  <div className="text-xs font-medium text-zinc-200 flex items-center gap-1.5">
-                    <Truck className="w-3.5 h-3.5 text-zinc-400" strokeWidth={1.5} />
+                  <div className="text-xs font-medium text-bone flex items-center gap-1.5 font-sans">
+                    <Truck className="w-3.5 h-3.5 text-greige" strokeWidth={1.5} />
                     Cash on Delivery (COD)
                   </div>
-                  <div className="text-[11px] text-zinc-500">
+                  <div className="text-[11px] text-greige">
                     Pay with cash at doorstep upon delivery
                   </div>
                 </div>
               </div>
-              <span className="text-[10px] font-mono text-zinc-400 bg-zinc-900 px-1.5 py-0.5 rounded border border-white/[0.06]">
+              <span className="text-[10px] font-mono text-greige bg-canvas px-1.5 py-0.5 rounded border border-white/10 uppercase tracking-wider">
                 Audited
               </span>
             </label>
 
             {/* UPI Option */}
             <label
-              className={`p-3 rounded-md border flex items-center justify-between cursor-pointer transition-colors ${
+              className={`p-3 rounded-lg border flex items-center justify-between cursor-pointer transition-colors ${
                 formData.paymentMethod === "UPI"
-                  ? "bg-zinc-800/80 border-white/30 text-zinc-100"
-                  : "bg-zinc-950/40 border-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60"
+                  ? "bg-surface-hover border-bone/30 text-bone shadow-sm"
+                  : "bg-canvas/60 border-white/10 text-greige hover:text-bone hover:bg-surface-hover/50"
               }`}
             >
               <div className="flex items-center gap-2.5">
@@ -256,14 +256,14 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
                   suppressHydrationWarning
                   checked={formData.paymentMethod === "UPI"}
                   onChange={() => onInputChange("paymentMethod", "UPI")}
-                  className="accent-zinc-200 w-3.5 h-3.5"
+                  className="accent-[#F5F2E6] w-3.5 h-3.5"
                 />
                 <div>
-                  <div className="text-xs font-medium text-zinc-200 flex items-center gap-1.5">
+                  <div className="text-xs font-medium text-bone flex items-center gap-1.5 font-sans">
                     <CreditCard className="w-3.5 h-3.5 text-emerald-400" strokeWidth={1.5} />
                     Instant UPI / QR Code
                   </div>
-                  <div className="text-[11px] text-zinc-500">
+                  <div className="text-[11px] text-greige">
                     Google Pay, PhonePe, Paytm or BHIM
                   </div>
                 </div>
@@ -276,19 +276,19 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
         </div>
 
         {/* Order Summary & Place Order Button */}
-        <div className="p-4 rounded-md bg-zinc-950/60 border border-white/[0.06] space-y-2.5">
-          <div className="flex justify-between items-center text-xs text-zinc-400">
+        <div className="p-4 rounded-xl bg-canvas/70 border border-white/10 space-y-2.5 font-sans">
+          <div className="flex justify-between items-center text-xs text-greige">
             <span>Selected Items ({cart.reduce((a, b) => a + b.quantity, 0)}):</span>
-            <span className="font-mono tabular-nums text-zinc-200">{formatCurrency(cartValue)}</span>
+            <span className="font-mono tabular-nums text-bone">{formatCurrency(cartValue)}</span>
           </div>
-          <div className="flex justify-between items-center text-xs text-zinc-400">
+          <div className="flex justify-between items-center text-xs text-greige">
             <span>Doorstep Shipping:</span>
             <span className="text-emerald-400 font-mono text-[11px]">FREE (Express Delivery)</span>
           </div>
 
-          <div className="pt-2 border-t border-white/[0.06] flex justify-between items-center">
-            <span className="text-xs font-semibold text-zinc-200">Total Payable:</span>
-            <span className="text-lg font-bold text-zinc-100 font-mono tabular-nums">
+          <div className="pt-2 border-t border-white/10 flex justify-between items-center">
+            <span className="text-xs font-semibold text-bone">Total Payable:</span>
+            <span className="text-lg font-bold text-bone font-mono tabular-nums">
               {formatCurrency(cartValue)}
             </span>
           </div>
@@ -297,11 +297,11 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
             type="submit"
             suppressHydrationWarning
             disabled={isLoading || cart.length === 0}
-            className="w-full mt-2 py-2.5 px-4 rounded-md font-medium text-xs bg-zinc-100 text-zinc-950 hover:bg-zinc-200 active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full mt-2 py-3 px-4 rounded-full font-medium text-xs bg-bone text-canvas hover:bg-bone-hover active:scale-[0.98] transition-all flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-md"
           >
-            <ShieldAlert className="w-4 h-4 text-zinc-950" strokeWidth={1.5} />
+            <ShieldAlert className="w-4 h-4 text-canvas" strokeWidth={1.5} />
             <span>{isLoading ? "Running Risk Engine..." : `Place Order • ${formatCurrency(cartValue)}`}</span>
-            <ArrowRight className="w-3.5 h-3.5 text-zinc-950" strokeWidth={1.5} />
+            <ArrowRight className="w-3.5 h-3.5 text-canvas" strokeWidth={1.5} />
           </button>
         </div>
       </div>

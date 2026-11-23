@@ -27,22 +27,22 @@ export const PersonaBar: React.FC<PersonaBarProps> = ({
   };
 
   return (
-    <div className="w-full mb-8 p-4 sm:p-5 rounded-lg border border-white/[0.08] bg-zinc-900/30">
+    <div className="w-full mb-8 p-4 sm:p-5 rounded-xl border border-white/10 bg-surface shadow-sm">
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 mb-4">
         <div>
-          <h3 className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-200 flex items-center gap-2">
-            <span>Test Profiles & Persona Injection</span>
-            <span className="text-[10px] text-zinc-400 bg-zinc-800 px-2 py-0.5 rounded border border-white/[0.06]">
+          <h3 className="font-display text-xs font-semibold uppercase tracking-[0.08em] text-bone flex items-center gap-2 lowercase">
+            <span>test profiles & persona injection</span>
+            <span className="text-[10px] font-mono text-bone bg-wine/30 px-2 py-0.5 rounded border border-wine/50 uppercase tracking-[0.08em]">
               1-CLICK AUTOFILL
             </span>
           </h3>
-          <p className="text-xs text-zinc-400 mt-0.5">
+          <p className="font-sans text-xs text-greige mt-0.5">
             Select a customer profile to populate checkout, test AI risk detection, and trigger dynamic interventions.
           </p>
         </div>
 
-        <div className="text-[11px] font-mono text-zinc-500 self-end md:self-auto">
-          Deterministic + Gemini NLP
+        <div className="text-[11px] font-mono text-greige self-end md:self-auto">
+          SPEC-01 • Deterministic + Gemini NLP
         </div>
       </div>
 
@@ -58,29 +58,29 @@ export const PersonaBar: React.FC<PersonaBarProps> = ({
               suppressHydrationWarning
               onClick={() => onSelectPersona(persona)}
               className={cn(
-                "group relative p-3 rounded-md border text-left transition-colors duration-150 flex flex-col justify-between",
+                "group relative p-3 rounded-lg border text-left transition-colors duration-150 flex flex-col justify-between",
                 isSelected
-                  ? "bg-zinc-800/80 border-white/25 text-zinc-100"
-                  : "bg-zinc-950/40 border-white/[0.06] text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/60"
+                  ? "bg-surface-hover border-bone/30 text-bone shadow-sm"
+                  : "bg-canvas border-white/5 text-greige hover:text-bone hover:bg-surface-hover/50"
               )}
             >
               <div>
                 <div className="flex items-center justify-between gap-1 mb-1">
-                  <span className="text-xs font-semibold text-zinc-200 flex items-center gap-1.5">
+                  <span className="text-xs font-semibold text-bone flex items-center gap-1.5 font-display lowercase">
                     {getIcon(persona.badgeVariant)}
                     {persona.title}
                   </span>
                 </div>
 
-                <p className="text-[11px] text-zinc-400 line-clamp-1 mb-2 font-mono">
+                <p className="text-[11px] text-greige line-clamp-1 mb-2 font-mono">
                   {persona.subtitle}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-2 border-t border-white/[0.06]">
+              <div className="flex items-center justify-between pt-2 border-t border-white/10">
                 <span
                   className={cn(
-                    "text-[9px] font-mono font-medium px-1.5 py-0.5 rounded border uppercase",
+                    "text-[9px] font-mono font-medium px-1.5 py-0.5 rounded border uppercase tracking-wider",
                     persona.badgeVariant === "low" && "bg-emerald-500/10 text-emerald-400 border-emerald-500/20",
                     persona.badgeVariant === "medium" && "bg-amber-500/10 text-amber-400 border-amber-500/20",
                     persona.badgeVariant === "high" && "bg-rose-500/10 text-rose-400 border-rose-500/20"
@@ -89,7 +89,7 @@ export const PersonaBar: React.FC<PersonaBarProps> = ({
                   {persona.badge}
                 </span>
 
-                <span className="text-[10px] font-mono text-zinc-300">
+                <span className="text-[10px] font-mono text-greige group-hover:text-bone transition-colors">
                   {isSelected ? "Active ✓" : "Select →"}
                 </span>
               </div>

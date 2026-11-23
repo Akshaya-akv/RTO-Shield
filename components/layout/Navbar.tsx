@@ -30,34 +30,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-zinc-950/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full surface-glass">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 flex items-center justify-between">
-        {/* Brand Logo */}
+        {/* Brand Logo - Editorial Oxblood & Bone */}
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-8 h-8 rounded-md bg-zinc-900 border border-white/10 flex items-center justify-center text-zinc-100 group-hover:border-white/20 transition-colors">
-              <ShieldAlert className="w-4 h-4 text-zinc-200" strokeWidth={1.5} />
+            <div className="w-8 h-8 rounded-md bg-surface border border-white/10 flex items-center justify-center text-bone group-hover:border-white/20 transition-colors">
+              <ShieldAlert className="w-4 h-4 text-bone" strokeWidth={1.5} />
             </div>
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-sm tracking-tight text-zinc-100">
-                RTO-SHIELD
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-display font-bold text-base tracking-tight text-bone lowercase">
+                rto-shield
               </span>
-              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded border border-white/[0.08] bg-zinc-900 text-zinc-400">
-                v1.0
+              <span className="font-mono text-[10px] tracking-[0.08em] uppercase text-greige">
+                ™
               </span>
             </div>
           </Link>
         </div>
 
-        {/* View Switcher Tabs - Clean Segmented Control */}
-        <div className="flex items-center p-1 rounded-lg bg-zinc-900/60 border border-white/[0.08]">
+        {/* View Switcher Tabs - Tactile Segmented Control */}
+        <div className="flex items-center p-1 rounded-lg bg-surface border border-white/10">
           <Link
             href="/storefront"
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1 rounded-md text-xs transition-colors duration-150",
+              "flex items-center gap-1.5 px-3 py-1 rounded-md text-xs transition-colors duration-150 font-medium",
               isStorefront
-                ? "bg-zinc-100 text-zinc-950 font-medium shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200"
+                ? "bg-bone text-canvas shadow-sm"
+                : "text-greige hover:text-bone"
             )}
           >
             <ShoppingBag className="w-3.5 h-3.5" strokeWidth={1.5} />
@@ -67,10 +67,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
           <Link
             href="/dashboard"
             className={cn(
-              "flex items-center gap-1.5 px-3 py-1 rounded-md text-xs transition-colors duration-150",
+              "flex items-center gap-1.5 px-3 py-1 rounded-md text-xs transition-colors duration-150 font-medium",
               isDashboard
-                ? "bg-zinc-100 text-zinc-950 font-medium shadow-sm"
-                : "text-zinc-400 hover:text-zinc-200"
+                ? "bg-bone text-canvas shadow-sm"
+                : "text-greige hover:text-bone"
             )}
           >
             <LayoutDashboard className="w-3.5 h-3.5" strokeWidth={1.5} />
@@ -80,17 +80,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
 
         {/* Status & Actions */}
         <div className="flex items-center gap-2.5">
-          <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[11px]">
+          <div className="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-wine/30 border border-wine/50 text-bone font-mono text-[11px] tracking-[0.04em]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span>Engine Active</span>
+            <span className="uppercase text-[10px] tracking-[0.08em] text-greige">ACTIVE • SPEC-01</span>
           </div>
 
           <button
             onClick={handleQuickReset}
             title="Reset Seeded Demo Data"
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs text-zinc-300 border border-white/[0.08] bg-zinc-900/40 hover:text-zinc-100 hover:bg-zinc-900 hover:border-white/20 transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs text-greige border border-white/10 bg-surface hover:text-bone hover:bg-surface-hover hover:border-white/20 transition-colors"
           >
-            <RefreshCw className="w-3 h-3 text-zinc-400" strokeWidth={1.5} />
+            <RefreshCw className="w-3 h-3 text-greige" strokeWidth={1.5} />
             <span className="hidden sm:inline">Reset Demo</span>
           </button>
         </div>

@@ -427,7 +427,7 @@ export default function HomePage() {
             {/* 6. "ONE DASHBOARD FOR EVERY VEHICLE AND LOAD"             */}
             {/* (Pointa Image 1 & 2 Bottom Section)                       */}
             {/* ========================================================= */}
-            <div id="dashboard-mockup" className="mb-24 scroll-mt-20">
+            <div id="risk-console" className="mb-24 scroll-mt-24">
               <div className="text-center max-w-2xl mx-auto mb-10">
                 <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-peach font-bold">
                   THE PLATFORM
@@ -481,7 +481,7 @@ export default function HomePage() {
             {/* ========================================================= */}
             {/* 7. SYSTEM ARCHITECTURE PILLARS                            */}
             {/* ========================================================= */}
-            <div id="architecture" className="pt-12 pb-8 border-t border-white/10 scroll-mt-20">
+            <div id="architecture" className="pt-12 pb-8 border-t border-white/10 scroll-mt-24">
               <div className="max-w-2xl mb-10">
                 <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-peach font-bold">
                   SYSTEM ARCHITECTURE

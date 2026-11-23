@@ -30,6 +30,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
     }
   };
 
+  const handleNavAnchor = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        window.history.pushState(null, "", `#${id}`);
+      }
+    }
+  };
+
   return (
     <div className="w-full">
       {/* Top Announcement Bar (Matching Reference Layout) */}
@@ -102,19 +113,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
               <span>Merchant Command</span>
             </Link>
 
-            <a
-              href="#risk-console"
-              className="px-3.5 py-1.5 rounded-full text-xs font-medium text-lavender/80 hover:text-white hover:bg-white/5 transition-colors"
+            <Link
+              href="/#risk-console"
+              onClick={(e) => handleNavAnchor(e, "risk-console")}
+              className="px-3.5 py-1.5 rounded-full text-xs font-medium text-lavender/80 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             >
               Risk Console
-            </a>
+            </Link>
 
-            <a
-              href="#architecture"
-              className="px-3.5 py-1.5 rounded-full text-xs font-medium text-lavender/80 hover:text-white hover:bg-white/5 transition-colors"
+            <Link
+              href="/#architecture"
+              onClick={(e) => handleNavAnchor(e, "architecture")}
+              className="px-3.5 py-1.5 rounded-full text-xs font-medium text-lavender/80 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
             >
               Architecture
-            </a>
+            </Link>
           </nav>
 
           {/* Right: Actions */}

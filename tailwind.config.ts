@@ -10,51 +10,65 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        canvas: "#140609",      // Primary Canvas (Deep Obsidian Oxblood)
-        background: "#140609",
-        surface: {
-          DEFAULT: "#240B11",   // Elevated Surface / Cards (Dark Burgundy)
-          raised: "#2C0E15",
-          hover: "#38111A",     // Interactive / Hover Surface (Rich Maroon)
-          input: "#1C080D",     // Inputs & Forms
-          border: "rgba(245, 242, 230, 0.10)",
-          "border-hover": "rgba(245, 242, 230, 0.22)",
+        // User requested palette
+        powder: {
+          DEFAULT: "#8DB9F0", // Powder Blue
+          light: "#A8CCF5",
+          dark: "#6F9ED9",
+          subtle: "rgba(141, 185, 240, 0.15)",
         },
-        foreground: "#F5F2E6",  // Primary Text & Logo (Warm Bone / Cream)
-        bone: {
-          DEFAULT: "#F5F2E6",
-          hover: "#E5E0D0",
+        lavender: {
+          DEFAULT: "#E9E8F8", // Soft Lavender White
+          pure: "#FFFFFF",
+          card: "rgba(233, 232, 248, 0.92)",
+          border: "rgba(255, 255, 255, 0.85)",
+          muted: "#626687",
+          dark: "#191A36",
         },
-        greige: "#B3A99E",      // Secondary / Muted Text (Warm Stone / Greige)
-        muted: "#B3A99E",
-        wine: {
-          DEFAULT: "#6E1F2D",   // Primary Accent (Dusty Oxblood / Wine)
-          hover: "#872737",
-          subtle: "rgba(110, 31, 45, 0.25)",
+        peach: {
+          DEFAULT: "#F5B69E", // Warm Sunset Peach
+          light: "#F9CBB9",
+          dark: "#E89B7F",
+          subtle: "rgba(245, 182, 158, 0.20)",
         },
-        contrast: {
-          bg: "#B3A99E",        // Light-Section Contrast Canvas
-          fg: "#140609",
+        // Twilight dusk atmospheric surfaces
+        twilight: {
+          DEFAULT: "#11142B",
+          canvas: "#11142B",
+          card: "#191D3C",
+          surface: "#1E2348",
+          border: "rgba(141, 185, 240, 0.15)",
+          text: "#F3F4FD",
+          muted: "#8C92B5",
+          btn: "#26244C",
+          "btn-hover": "#1D1B3C",
         },
         status: {
-          low: "#10B981",    // Verified / Low Risk Emerald
-          medium: "#F59E0B", // Review / Nudge Amber
-          high: "#EF4444",   // Blocked / Restrict Rose
+          low: "#10B981",    // Low Risk Emerald
+          medium: "#F5B69E", // Medium Risk Sunset Peach
+          high: "#F43F5E",   // High Risk Rose
         },
       },
       fontFamily: {
-        display: ['"Bricolage Grotesque"', 'system-ui', 'sans-serif'],
-        sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', '"DM Sans"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       borderRadius: {
-        sm: "6px",
-        DEFAULT: "8px",
-        md: "8px",
-        lg: "10px",
-        xl: "12px",
-        "2xl": "16px",
+        sm: "8px",
+        DEFAULT: "12px",
+        md: "14px",
+        lg: "18px",
+        xl: "22px",
+        "2xl": "26px",
+        "3xl": "32px",
         full: "9999px",
+      },
+      boxShadow: {
+        glass: "0 20px 50px rgba(17, 20, 43, 0.25)",
+        "glass-lg": "0 25px 60px rgba(17, 20, 43, 0.35)",
+        "peach-sm": "0 8px 24px rgba(245, 182, 158, 0.30)",
+        "powder-sm": "0 8px 24px rgba(141, 185, 240, 0.30)",
       },
       transitionTimingFunction: {
         snappy: "cubic-bezier(0.16, 1, 0.3, 1)",

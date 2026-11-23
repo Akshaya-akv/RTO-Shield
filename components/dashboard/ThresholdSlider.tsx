@@ -56,36 +56,38 @@ export const ThresholdSlider: React.FC<ThresholdSliderProps> = ({
   };
 
   return (
-    <div className="rounded-xl border border-white/10 bg-surface p-5 sm:p-6 mb-8 shadow-sm">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10 mb-5">
-        <div className="flex items-center gap-2.5">
-          <Sliders className="w-5 h-5 text-bone" strokeWidth={1.5} />
+    <div className="rounded-3xl glass-twilight p-6 sm:p-7 mb-8 shadow-glass">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/10 mb-6">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-peach/15 flex items-center justify-center text-peach">
+            <Sliders className="w-5 h-5 text-peach" strokeWidth={2} />
+          </div>
           <div>
-            <h3 className="font-display text-sm font-semibold text-bone flex items-center gap-2 lowercase">
-              merchant risk intervention threshold
-              <span className="text-[10px] font-mono text-bone bg-wine/30 px-2 py-0.5 rounded border border-wine/50 uppercase tracking-[0.08em]">
+            <h3 className="font-display text-base font-bold text-white flex items-center gap-2">
+              Merchant Risk Intervention Threshold
+              <span className="text-[10px] font-mono text-powder bg-powder/20 px-2.5 py-0.5 rounded-full border border-powder/40 uppercase font-bold tracking-wider">
                 CUTOFF POLICY
               </span>
             </h3>
-            <p className="font-sans text-xs text-greige mt-0.5">
+            <p className="font-sans text-xs text-twilight-muted mt-0.5">
               Score threshold that triggers mandatory COD restriction and ₹50 prepaid incentive.
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-baseline gap-1.5 bg-canvas px-3 py-1.5 rounded-md border border-white/10 font-mono">
-            <span className="text-xs text-greige uppercase tracking-wider">Cutoff:</span>
-            <span className="text-lg font-bold text-bone tabular-nums">{threshold}</span>
-            <span className="text-[11px] text-greige/70">/ 100</span>
+          <div className="flex items-baseline gap-1.5 bg-white/10 px-4 py-2 rounded-full border border-white/20 font-mono">
+            <span className="text-xs text-twilight-muted uppercase tracking-wider font-semibold">Cutoff:</span>
+            <span className="text-lg font-extrabold text-peach tabular-nums">{threshold}</span>
+            <span className="text-[11px] text-twilight-muted">/ 100</span>
           </div>
 
           <button
             onClick={handleApplyThreshold}
             disabled={isSaving}
-            className="py-1.5 px-4 rounded-md text-xs font-medium bg-bone text-canvas hover:bg-bone-hover active:scale-[0.98] transition-all flex items-center gap-1.5 disabled:opacity-50 font-sans"
+            className="py-2.5 px-5 rounded-full text-xs font-bold bg-peach hover:bg-peach-light text-lavender-dark active:scale-[0.98] transition-all flex items-center gap-1.5 disabled:opacity-50 font-sans shadow-peach-sm"
           >
-            <Check className="w-3.5 h-3.5" strokeWidth={1.5} />
+            <Check className="w-4 h-4" strokeWidth={2} />
             <span>{isSaving ? "Saving..." : "Apply Cutoff"}</span>
           </button>
         </div>
@@ -101,22 +103,22 @@ export const ThresholdSlider: React.FC<ThresholdSliderProps> = ({
             step={1}
             value={threshold}
             onChange={(e) => handleSliderChange(parseInt(e.target.value, 10))}
-            className="w-full h-1.5 bg-surface-hover rounded-lg appearance-none cursor-pointer accent-[#F5F2E6]"
+            className="w-full h-2.5 bg-white/15 rounded-lg appearance-none cursor-pointer accent-[#F5B69E]"
           />
-          <div className="flex justify-between text-[11px] text-greige font-mono mt-2 tabular-nums">
+          <div className="flex justify-between text-[11px] text-twilight-muted font-mono mt-2.5 tabular-nums font-semibold">
             <span>50 (Strict Enforcement)</span>
-            <span className="text-bone font-medium">75 (Recommended Standard)</span>
+            <span className="text-peach font-bold">75 (Recommended Standard)</span>
             <span>95 (Permissive)</span>
           </div>
         </div>
 
         {/* Policy Impact Note */}
-        <div className="p-3 rounded-lg bg-surface-input border border-white/10 flex items-start gap-2.5 text-xs text-greige font-sans">
-          <Info className="w-4 h-4 text-bone shrink-0 mt-0.5" strokeWidth={1.5} />
+        <div className="p-4 rounded-2xl bg-white/10 border border-white/15 flex items-start gap-3 text-xs text-lavender font-sans leading-relaxed">
+          <Info className="w-4 h-4 text-powder shrink-0 mt-0.5" strokeWidth={2} />
           <div>
-            <span className="font-medium text-bone">Policy Impact: </span>
+            <span className="font-bold text-white">Policy Impact: </span>
             <span>{getPolicyMeaning(threshold)}</span>
-            <span className="block text-[11px] text-greige/70 mt-1 font-mono">
+            <span className="block text-[11px] text-twilight-muted mt-1 font-mono">
               Adjusting cutoff score immediately modifies future checkout policies without changing historical order scores.
             </span>
           </div>

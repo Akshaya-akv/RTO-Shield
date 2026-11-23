@@ -47,7 +47,7 @@ const SCENARIOS: Scenario[] = [
     finalScore: 15,
     riskLevel: "LOW",
     action: "ALLOW COD DISPATCH",
-    actionClass: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+    actionClass: "text-emerald-700 bg-emerald-50 border-emerald-300",
     reasons: [
       "Verified premise & street number present",
       "Customer history: 100% successful fulfillment",
@@ -69,7 +69,7 @@ const SCENARIOS: Scenario[] = [
     finalScore: 55,
     riskLevel: "MEDIUM",
     action: "OFFER ₹50 UPI DISCOUNT NUDGE",
-    actionClass: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+    actionClass: "text-[#B34A29] bg-[#FDECE5] border-peach",
     reasons: [
       "Customer has 2 prior doorstep rejections (+35 pts)",
       "High-value COD cart exceeds ₹2,500 (+15 pts)",
@@ -91,7 +91,7 @@ const SCENARIOS: Scenario[] = [
     finalScore: 88,
     riskLevel: "HIGH",
     action: "RESTRICT COD / MANDATORY PREPAID",
-    actionClass: "text-rose-400 bg-rose-500/10 border-rose-500/20",
+    actionClass: "text-rose-700 bg-rose-50 border-rose-300",
     reasons: [
       "Critical repeat returner: 5 prior RTOs (+40 pts)",
       "No flat, building, or premise number (+10 pts)",
@@ -105,31 +105,31 @@ export const RiskInspectionConsole: React.FC = () => {
   const activeScenario = SCENARIOS.find((s) => s.id === activeId) || SCENARIOS[2];
 
   return (
-    <div className="w-full rounded-xl border border-white/10 bg-surface p-4 sm:p-6 shadow-xl">
+    <div className="w-full rounded-3xl glass-lavender p-5 sm:p-8 shadow-glass transition-all">
       {/* Console Top Bar */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-white/10 mb-5">
-        <div className="flex items-center gap-2 text-xs text-greige">
-          <Terminal className="w-4 h-4 text-bone" strokeWidth={1.5} />
-          <span className="font-mono text-bone">live-evaluator.bin</span>
-          <span className="text-greige/40">/</span>
-          <span className="text-greige font-mono">checkout-stream</span>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-lavender-border mb-6">
+        <div className="flex items-center gap-2 text-xs text-lavender-muted">
+          <Terminal className="w-4 h-4 text-twilight-btn" strokeWidth={2} />
+          <span className="font-mono font-semibold text-lavender-dark">live-evaluator.bin</span>
+          <span className="text-lavender-muted/50">/</span>
+          <span className="text-lavender-muted font-mono">checkout-stream</span>
         </div>
 
         <div className="flex items-center gap-2 font-mono text-[11px]">
-          <span className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-wine/30 text-bone border border-wine/50 uppercase tracking-wider text-[10px]">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+          <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-powder/30 text-twilight font-semibold border border-powder/50 text-[10px] uppercase tracking-wider">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             Active Policy: 75/100
           </span>
-          <span className="text-greige tabular-nums">latency: 42ms</span>
+          <span className="text-lavender-muted font-medium tabular-nums">latency: 42ms</span>
         </div>
       </div>
 
       {/* Scenario Switcher Tabs */}
-      <div className="mb-5">
-        <div className="text-[11px] font-mono text-greige uppercase tracking-[0.08em] mb-2">
+      <div className="mb-6">
+        <div className="text-[11px] font-mono text-lavender-muted uppercase tracking-[0.08em] mb-2 font-semibold">
           Select Test Stream Profile:
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
           {SCENARIOS.map((s) => {
             const isSelected = s.id === activeId;
             return (
@@ -137,27 +137,27 @@ export const RiskInspectionConsole: React.FC = () => {
                 key={s.id}
                 type="button"
                 onClick={() => setActiveId(s.id)}
-                className={`p-3 rounded-lg border text-left transition-colors duration-150 flex flex-col justify-between ${
+                className={`p-3.5 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between ${
                   isSelected
-                    ? "bg-surface-hover border-bone/30 text-bone shadow-sm"
-                    : "bg-canvas border-white/5 text-greige hover:text-bone hover:bg-surface-hover/50"
+                    ? "bg-white border-powder shadow-glass text-lavender-dark scale-[1.01]"
+                    : "bg-white/60 border-white/80 text-lavender-muted hover:bg-white/90 hover:text-lavender-dark"
                 }`}
               >
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-semibold font-display">{s.name}</span>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-xs font-bold font-display text-lavender-dark">{s.name}</span>
                   <span
-                    className={`text-[10px] font-mono font-medium px-1.5 py-0.2 rounded border ${
+                    className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded-full border ${
                       s.riskLevel === "LOW"
-                        ? "text-emerald-400 border-emerald-500/20 bg-emerald-500/10"
+                        ? "text-emerald-700 border-emerald-300 bg-emerald-50"
                         : s.riskLevel === "MEDIUM"
-                        ? "text-amber-400 border-amber-500/20 bg-amber-500/10"
-                        : "text-rose-400 border-rose-500/20 bg-rose-500/10"
+                        ? "text-[#B34A29] border-peach bg-[#FDECE5]"
+                        : "text-rose-700 border-rose-300 bg-rose-50"
                     }`}
                   >
                     {s.riskLevel} ({s.finalScore})
                   </span>
                 </div>
-                <span className="text-[11px] text-greige truncate font-mono">
+                <span className="text-[11px] text-lavender-muted truncate font-mono">
                   {s.city} • ₹{s.cartValue.toLocaleString("en-IN")}
                 </span>
               </button>
@@ -169,73 +169,73 @@ export const RiskInspectionConsole: React.FC = () => {
       {/* Inspection Output Grid */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
         {/* Left Column: Parsed Order Input */}
-        <div className="md:col-span-7 space-y-3 p-4 rounded-lg border border-white/10 bg-canvas/60">
-          <div className="text-[11px] font-mono text-greige uppercase tracking-[0.08em] pb-2 border-b border-white/10 flex items-center justify-between">
+        <div className="md:col-span-7 space-y-3.5 p-5 rounded-2xl bg-white/70 border border-white/90 shadow-sm">
+          <div className="text-[11px] font-mono text-lavender-muted uppercase tracking-[0.08em] pb-2.5 border-b border-[#D8D6EE] flex items-center justify-between font-semibold">
             <span>Parsed Checkout Submission</span>
-            <span className="text-greige/70">ID: {activeScenario.phone}</span>
+            <span className="text-powder-dark font-medium">ID: {activeScenario.phone}</span>
           </div>
 
           <div className="grid grid-cols-2 gap-3 text-xs">
             <div>
-              <span className="text-[11px] text-greige block font-mono uppercase tracking-wider">Recipient</span>
-              <span className="text-bone font-medium font-sans">{activeScenario.name}</span>
+              <span className="text-[10px] text-lavender-muted block font-mono uppercase tracking-wider font-semibold">Recipient</span>
+              <span className="text-lavender-dark font-bold font-sans text-sm">{activeScenario.name}</span>
             </div>
             <div>
-              <span className="text-[11px] text-greige block font-mono uppercase tracking-wider">Phone & Location</span>
-              <span className="text-bone font-mono tabular-nums">
+              <span className="text-[10px] text-lavender-muted block font-mono uppercase tracking-wider font-semibold">Phone & Location</span>
+              <span className="text-lavender-dark font-mono font-medium tabular-nums">
                 +91 {activeScenario.phone} ({activeScenario.pincode})
               </span>
             </div>
           </div>
 
           <div className="text-xs">
-            <span className="text-[11px] text-greige block mb-0.5 font-mono uppercase tracking-wider">Shipping Address</span>
-            <p className="text-bone font-mono text-[11px] p-2.5 rounded bg-surface-input border border-white/10 leading-relaxed">
+            <span className="text-[10px] text-lavender-muted block mb-1 font-mono uppercase tracking-wider font-semibold">Shipping Address</span>
+            <p className="text-lavender-dark font-mono text-[11px] p-3 rounded-xl bg-white border border-[#D5D3EE] leading-relaxed shadow-inner">
               {activeScenario.addressSnippet}
             </p>
           </div>
 
           <div className="text-xs pt-1">
-            <span className="text-[11px] text-greige block font-mono uppercase tracking-wider">Historical Fulfillment Record</span>
-            <span className="text-bone font-mono text-[11px]">
+            <span className="text-[10px] text-lavender-muted block font-mono uppercase tracking-wider font-semibold">Historical Record</span>
+            <span className="text-lavender-dark font-mono text-[11px] font-medium">
               {activeScenario.historySummary}
             </span>
           </div>
         </div>
 
         {/* Right Column: Score Breakdown & Recommendation */}
-        <div className="md:col-span-5 p-4 rounded-lg border border-white/10 bg-canvas/60 flex flex-col justify-between">
+        <div className="md:col-span-5 p-5 rounded-2xl bg-white/70 border border-white/90 shadow-sm flex flex-col justify-between">
           <div>
-            <div className="text-[11px] font-mono text-greige uppercase tracking-[0.08em] pb-2 border-b border-white/10 flex items-center justify-between mb-3">
+            <div className="text-[11px] font-mono text-lavender-muted uppercase tracking-[0.08em] pb-2.5 border-b border-[#D8D6EE] flex items-center justify-between mb-3 font-semibold">
               <span>Risk Evaluation</span>
-              <span className="font-mono text-bone tabular-nums font-semibold">
+              <span className="font-mono text-lavender-dark font-bold text-sm tabular-nums">
                 {activeScenario.finalScore}/100
               </span>
             </div>
 
             {/* Score Bar Breakdown */}
-            <div className="space-y-2 mb-4 font-mono text-xs">
+            <div className="space-y-3 mb-4 font-mono text-xs">
               <div>
-                <div className="flex justify-between text-[11px] text-greige mb-1">
+                <div className="flex justify-between text-[11px] text-lavender-muted mb-1 font-medium">
                   <span>Deterministic Rules</span>
-                  <span className="text-bone tabular-nums">{activeScenario.ruleScore}/40 pts</span>
+                  <span className="text-lavender-dark font-bold tabular-nums">{activeScenario.ruleScore}/40 pts</span>
                 </div>
-                <div className="h-1.5 w-full bg-surface-hover rounded-full overflow-hidden border border-white/5">
+                <div className="h-2 w-full bg-[#E0DDF2] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-bone rounded-full transition-all duration-300"
+                    className="h-full bg-twilight-btn rounded-full transition-all duration-300"
                     style={{ width: `${(activeScenario.ruleScore / 40) * 100}%` }}
                   />
                 </div>
               </div>
 
               <div>
-                <div className="flex justify-between text-[11px] text-greige mb-1">
+                <div className="flex justify-between text-[11px] text-lavender-muted mb-1 font-medium">
                   <span>Gemini Address Audit</span>
-                  <span className="text-bone tabular-nums">{activeScenario.aiScore}/60 pts</span>
+                  <span className="text-lavender-dark font-bold tabular-nums">{activeScenario.aiScore}/60 pts</span>
                 </div>
-                <div className="h-1.5 w-full bg-surface-hover rounded-full overflow-hidden border border-white/5">
+                <div className="h-2 w-full bg-[#E0DDF2] rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-bone/80 rounded-full transition-all duration-300"
+                    className="h-full bg-powder rounded-full transition-all duration-300"
                     style={{ width: `${(activeScenario.aiScore / 60) * 100}%` }}
                   />
                 </div>
@@ -244,10 +244,10 @@ export const RiskInspectionConsole: React.FC = () => {
 
             {/* Diagnostic Signals */}
             <div className="space-y-1.5 mb-4 font-sans">
-              <span className="text-[11px] font-mono text-greige block uppercase tracking-[0.08em]">Detected Signals:</span>
+              <span className="text-[10px] font-mono text-lavender-muted block uppercase tracking-[0.08em] font-semibold">Detected Signals:</span>
               {activeScenario.reasons.map((r, i) => (
-                <div key={i} className="flex items-start gap-1.5 text-[11px] text-bone/90">
-                  <span className="text-greige select-none font-mono">•</span>
+                <div key={i} className="flex items-start gap-1.5 text-[11px] text-lavender-dark font-medium">
+                  <span className="text-peach-dark font-bold font-mono">•</span>
                   <span>{r}</span>
                 </div>
               ))}
@@ -255,12 +255,12 @@ export const RiskInspectionConsole: React.FC = () => {
           </div>
 
           {/* Action Callout */}
-          <div className="pt-3 border-t border-white/10">
-            <span className="text-[10px] font-mono text-greige block uppercase tracking-[0.08em] mb-1">
-              Automated Policy Enforcement:
+          <div className="pt-3 border-t border-[#D8D6EE]">
+            <span className="text-[10px] font-mono text-lavender-muted block uppercase tracking-[0.08em] mb-1 font-semibold">
+              Policy Action:
             </span>
             <div
-              className={`p-2.5 rounded border font-mono text-xs font-semibold text-center ${activeScenario.actionClass}`}
+              className={`p-3 rounded-xl border font-mono text-xs font-bold text-center tracking-wide shadow-sm ${activeScenario.actionClass}`}
             >
               {activeScenario.action}
             </div>
@@ -269,16 +269,16 @@ export const RiskInspectionConsole: React.FC = () => {
       </div>
 
       {/* Direct Link to Live Simulator */}
-      <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-        <span className="text-greige font-sans">
+      <div className="mt-5 pt-4 border-t border-lavender-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <span className="text-lavender-muted font-medium">
           Want to test your own custom cart and delivery address?
         </span>
         <Link
           href="/storefront"
-          className="inline-flex items-center gap-1.5 font-medium text-bone hover:text-bone-hover font-mono tracking-wide transition-colors"
+          className="inline-flex items-center gap-1.5 font-bold text-twilight-btn hover:text-black transition-colors"
         >
-          <span>Open Full Interactive Storefront</span>
-          <ArrowRight className="w-3.5 h-3.5" strokeWidth={1.5} />
+          <span>Open Full Storefront Simulator</span>
+          <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
         </Link>
       </div>
     </div>

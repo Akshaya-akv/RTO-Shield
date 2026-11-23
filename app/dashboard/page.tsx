@@ -71,7 +71,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-canvas text-foreground flex flex-col font-sans">
+    <div className="min-h-screen text-twilight-text flex flex-col font-sans">
       <Navbar onResetDemo={() => loadDashboardData(true)} />
 
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
@@ -84,8 +84,8 @@ export default function DashboardPage() {
 
         {isLoading && !analytics ? (
           <div className="py-24 flex flex-col items-center justify-center">
-            <Loader2 className="w-6 h-6 text-bone animate-spin mb-3" strokeWidth={1.5} />
-            <p className="text-xs font-mono text-greige uppercase tracking-[0.08em]">
+            <Loader2 className="w-8 h-8 text-powder animate-spin mb-3" strokeWidth={2} />
+            <p className="text-xs font-mono text-twilight-muted uppercase tracking-[0.1em] font-semibold">
               Connecting to Telemetry Engine...
             </p>
           </div>

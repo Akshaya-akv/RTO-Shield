@@ -39,34 +39,36 @@ export const ResetDemoModal: React.FC<ResetDemoModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-canvas/80 backdrop-blur-sm animate-in fade-in duration-150">
-      <div className="w-full max-w-md rounded-xl bg-surface border border-white/15 p-6 shadow-2xl relative">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="w-full max-w-md rounded-3xl glass-lavender p-6 sm:p-7 shadow-glass-lg relative font-sans">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-greige hover:text-bone p-1 rounded-md hover:bg-surface-hover transition-colors"
+          className="absolute top-5 right-5 text-lavender-muted hover:text-lavender-dark p-1 rounded-full hover:bg-white transition-colors"
         >
-          <X className="w-4 h-4" strokeWidth={1.5} />
+          <X className="w-4 h-4" strokeWidth={2} />
         </button>
 
-        <div className="flex items-start gap-3 mb-4">
-          <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" strokeWidth={1.5} />
+        <div className="flex items-start gap-3.5 mb-4">
+          <div className="w-10 h-10 rounded-2xl bg-peach/25 text-peach-dark border border-peach/50 flex items-center justify-center shrink-0">
+            <AlertTriangle className="w-5 h-5 text-peach-dark" strokeWidth={2} />
+          </div>
           <div>
-            <h3 className="font-display text-sm font-semibold text-bone lowercase">reset demo database?</h3>
-            <p className="font-sans text-xs text-greige mt-1 leading-relaxed">
+            <h3 className="font-display text-base font-bold text-lavender-dark">Reset Demo Database?</h3>
+            <p className="font-sans text-xs text-lavender-muted mt-1 leading-relaxed">
               This will restore the 3 seeded test customer history profiles (Rahul, Vikram, Amit) and reset the orders feed back to initial baseline data.
             </p>
           </div>
         </div>
 
-        <div className="p-3 rounded-lg bg-surface-input border border-white/10 text-[11px] text-greige mb-6 leading-relaxed font-mono">
+        <div className="p-3.5 rounded-2xl bg-white border border-[#D5D3EE] text-[11px] text-lavender-dark mb-6 leading-relaxed font-mono shadow-inner">
           Recommended before starting a fresh demonstration session.
         </div>
 
-        <div className="flex justify-end gap-2.5 font-mono text-xs">
+        <div className="flex justify-end gap-2.5 font-sans">
           <button
             onClick={onClose}
             disabled={isResetting}
-            className="py-2 px-3.5 rounded-lg font-medium text-greige hover:text-bone bg-surface-hover border border-white/10 hover:border-white/20 transition-colors"
+            className="py-2.5 px-4 rounded-full text-xs font-bold text-lavender-dark bg-white border border-[#D5D3EE] hover:bg-[#F4F3FC] transition-all"
           >
             Cancel
           </button>
@@ -74,9 +76,9 @@ export const ResetDemoModal: React.FC<ResetDemoModalProps> = ({
           <button
             onClick={handleConfirmReset}
             disabled={isResetting}
-            className="py-2 px-4 rounded-lg font-medium bg-wine hover:bg-wine-hover text-bone transition-colors flex items-center gap-1.5"
+            className="py-2.5 px-5 rounded-full text-xs font-bold bg-peach hover:bg-peach-light text-lavender-dark transition-all flex items-center gap-1.5 shadow-peach-sm"
           >
-            <RefreshCw className={`w-3.5 h-3.5 ${isResetting ? "animate-spin" : ""}`} strokeWidth={1.5} />
+            <RefreshCw className={`w-3.5 h-3.5 text-lavender-dark ${isResetting ? "animate-spin" : ""}`} strokeWidth={2} />
             <span>{isResetting ? "Resetting..." : "Confirm & Reset Data"}</span>
           </button>
         </div>

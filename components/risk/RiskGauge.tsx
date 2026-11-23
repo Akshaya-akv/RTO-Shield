@@ -79,30 +79,29 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ score, riskLevel, size = 1
           strokeDashoffset={strokeDashoffset}
           strokeLinecap="round"
           style={{
-            filter: `drop-shadow(0 0 10px ${theme.glow})`,
-            transition: "stroke-dashoffset 0.1s ease-out, stroke 0.3s ease",
+            transition: "stroke-dashoffset 0.15s ease-out, stroke 0.2s ease",
           }}
         />
       </svg>
 
       {/* Center Score Readout */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center pt-2">
-        <span className="text-4xl font-extrabold tracking-tighter text-white font-mono">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center pt-2 font-mono">
+        <span className="text-4xl font-bold tracking-tight text-zinc-100 tabular-nums">
           {animatedScore}
         </span>
-        <span className="text-[10px] uppercase font-semibold text-muted tracking-widest mt-0.5">
+        <span className="text-[10px] uppercase text-zinc-500 tracking-wider mt-0.5">
           / 100 RISK
         </span>
         <span
-          className={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full mt-1 ${
+          className={`text-[10px] font-medium uppercase tracking-wider px-2 py-0.5 rounded border mt-1.5 ${
             riskLevel === "HIGH"
-              ? "bg-rose-500/20 text-rose-300 border border-rose-500/40"
+              ? "bg-rose-500/10 text-rose-400 border-rose-500/20"
               : riskLevel === "MEDIUM"
-              ? "bg-amber-500/20 text-amber-300 border border-amber-500/40"
-              : "bg-emerald-500/20 text-emerald-300 border border-emerald-500/40"
+              ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
+              : "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
           }`}
         >
-          {riskLevel} RISK
+          {riskLevel}
         </span>
       </div>
     </div>

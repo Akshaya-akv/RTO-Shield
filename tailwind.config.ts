@@ -10,74 +10,40 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#07070A",
-        "secondary-bg": "#0E0C17",
-        "card-bg": "rgba(18, 16, 28, 0.75)",
-        "card-border": "rgba(168, 85, 247, 0.15)",
-        "card-border-hover": "rgba(217, 70, 239, 0.4)",
-        primary: {
-          DEFAULT: "#00D4FF",
-          glow: "rgba(0, 212, 255, 0.25)",
-          dark: "#0099cc",
+        background: "#09090B", // 60% Canvas (Rich Off-Black)
+        surface: {
+          DEFAULT: "#121215", // 30% Structural Elements
+          raised: "#18181B",
+          hover: "#202024",
+          border: "rgba(255, 255, 255, 0.08)",
+          "border-hover": "rgba(255, 255, 255, 0.16)",
         },
-        secondary: {
-          DEFAULT: "#A855F7",
-          glow: "rgba(168, 85, 247, 0.25)",
-        },
+        foreground: "#EDEDEC", // Warm Off-White Text
+        muted: "#94949E",
+        // Single intentional primary accent + strict semantic tokens
         accent: {
-          DEFAULT: "#D946EF",
-          glow: "rgba(217, 70, 239, 0.3)",
+          DEFAULT: "#FAFAFA", // Off-white interactive primary
+          subtle: "rgba(255, 255, 255, 0.06)",
         },
-        obsidian: {
-          950: "#050508",
-          900: "#09080F",
-          800: "#12101D",
-          700: "#1A1728",
+        status: {
+          low: "#10B981",    // Verified / Low Risk Emerald
+          medium: "#F59E0B", // Review / Nudge Amber
+          high: "#EF4444",   // Blocked / Restrict Rose
         },
-        success: {
-          DEFAULT: "#22C55E",
-          glow: "rgba(34, 197, 94, 0.25)",
-        },
-        warning: {
-          DEFAULT: "#F59E0B",
-          glow: "rgba(245, 158, 11, 0.25)",
-        },
-        danger: {
-          DEFAULT: "#EF4444",
-          glow: "rgba(239, 68, 68, 0.25)",
-        },
-        foreground: "#F8FAFC",
-        muted: "#94A3B8",
       },
-      boxShadow: {
-        "cyan-glow": "0 0 25px -5px rgba(0, 212, 255, 0.3)",
-        "purple-glow": "0 0 25px -5px rgba(168, 85, 247, 0.35)",
-        "magenta-glow": "0 0 35px -5px rgba(217, 70, 239, 0.35)",
-        "danger-glow": "0 0 25px -5px rgba(239, 68, 68, 0.3)",
-        "success-glow": "0 0 25px -5px rgba(34, 197, 94, 0.3)",
-        "orb-glow": "0 0 50px 10px rgba(168, 85, 247, 0.45)",
+      borderRadius: {
+        sm: "6px",
+        DEFAULT: "8px",
+        md: "8px",
+        lg: "10px",
+        xl: "12px",
+        "2xl": "16px",
       },
-      animation: {
-        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
-        "glow-line": "glowLine 3s ease-in-out infinite",
-        "float": "float 6s ease-in-out infinite",
-        "float-delayed": "float 7s ease-in-out 2s infinite",
-        "spin-slow": "spin 20s linear infinite",
-        "liquid-pulse": "liquidPulse 4s ease-in-out infinite",
+      transitionTimingFunction: {
+        snappy: "cubic-bezier(0.16, 1, 0.3, 1)",
       },
-      keyframes: {
-        glowLine: {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "0.9" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-10px)" },
-        },
-        liquidPulse: {
-          "0%, 100%": { transform: "scale(1)", filter: "hue-rotate(0deg)" },
-          "50%": { transform: "scale(1.04)", filter: "hue-rotate(20deg)" },
-        },
+      transitionDuration: {
+        fast: "180ms",
       },
     },
   },

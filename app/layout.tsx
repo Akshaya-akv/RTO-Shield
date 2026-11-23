@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className="bg-background text-foreground antialiased min-h-screen selection:bg-primary/30 selection:text-white"
+        className="bg-background text-foreground antialiased min-h-screen selection:bg-zinc-800 selection:text-zinc-100"
         suppressHydrationWarning
       >
         {children}
@@ -27,9 +27,9 @@ export default function RootLayout({
           theme="dark"
           toastOptions={{
             style: {
-              background: "#101A2D",
-              border: "1px solid rgba(0, 212, 255, 0.25)",
-              color: "#F8FAFC",
+              background: "#121215",
+              border: "1px solid rgba(255, 255, 255, 0.1)",
+              color: "#EDEDEC",
             },
           }}
         />

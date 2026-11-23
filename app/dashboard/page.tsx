@@ -84,9 +84,9 @@ export default function DashboardPage() {
 
         {isLoading && !analytics ? (
           <div className="py-24 flex flex-col items-center justify-center">
-            <Loader2 className="w-10 h-10 text-primary animate-spin mb-4" />
-            <p className="text-xs font-mono text-muted uppercase tracking-widest">
-              Connecting to Supabase Telemetry Engine...
+            <Loader2 className="w-6 h-6 text-zinc-400 animate-spin mb-3" strokeWidth={1.5} />
+            <p className="text-xs font-mono text-zinc-500 uppercase tracking-widest">
+              Connecting to Telemetry Engine...
             </p>
           </div>
         ) : analytics ? (

@@ -20,15 +20,15 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
 }) => {
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between pb-2 border-b border-card-border">
+      <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
         <div>
-          <h2 className="text-lg font-bold text-white flex items-center gap-2">
-            <ShoppingBag className="w-5 h-5 text-primary" />
+          <h2 className="text-sm font-semibold text-zinc-100 flex items-center gap-2">
+            <ShoppingBag className="w-4 h-4 text-zinc-400" strokeWidth={1.5} />
             Featured D2C Electronics
           </h2>
-          <p className="text-xs text-muted">Select products to test order evaluation & COD rules</p>
+          <p className="text-xs text-zinc-400 mt-0.5">Select products to test order evaluation & COD rules</p>
         </div>
-        <span className="text-xs font-mono text-primary bg-primary/10 px-2.5 py-1 rounded-full border border-primary/20">
+        <span className="text-xs font-mono text-zinc-400 bg-zinc-900 px-2.5 py-1 rounded-md border border-white/10 tabular-nums">
           {SAMPLE_PRODUCTS.length} Products In Stock
         </span>
       </div>
@@ -41,46 +41,45 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
           return (
             <div
               key={product.id}
-              className="group flex flex-col justify-between rounded-xl bg-secondary-bg/80 border border-card-border hover:border-primary/50 transition-all duration-300 hover:shadow-cyan-glow overflow-hidden"
+              className="group flex flex-col justify-between rounded-lg bg-zinc-900/30 border border-white/[0.08] hover:border-white/20 transition-colors overflow-hidden"
             >
               {/* Product Image */}
-              <div className="relative w-full h-44 bg-slate-900 overflow-hidden">
+              <div className="relative w-full h-44 bg-zinc-950 overflow-hidden">
                 <img
                   src={product.image}
                   alt={product.name}
                   onError={(e) => {
-                    // Fallback to high-reliability tech image if any link is interrupted
                     e.currentTarget.onerror = null;
                     e.currentTarget.src = "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80";
                   }}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                 />
-                <div className="absolute top-2.5 right-2.5 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-md text-[11px] font-semibold text-white flex items-center gap-1">
-                  <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                  <span>{product.rating}</span>
+                <div className="absolute top-2.5 right-2.5 bg-black/70 backdrop-blur-sm px-2 py-0.5 rounded text-[11px] font-medium text-zinc-200 flex items-center gap-1 border border-white/10">
+                  <Star className="w-3 h-3 text-amber-400 fill-amber-400" strokeWidth={1.5} />
+                  <span className="tabular-nums font-mono">{product.rating}</span>
                 </div>
               </div>
 
               {/* Product Info */}
               <div className="p-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-semibold text-sm text-white group-hover:text-primary transition-colors line-clamp-1">
+                  <h3 className="font-medium text-sm text-zinc-100 line-clamp-1">
                     {product.name}
                   </h3>
-                  <p className="text-[11px] text-primary/80 font-medium mb-1 line-clamp-1">
+                  <p className="text-[11px] text-zinc-400 font-normal mb-1.5 line-clamp-1">
                     {product.tagline}
                   </p>
-                  <p className="text-xs text-muted line-clamp-2 mb-3">
+                  <p className="text-xs text-zinc-500 line-clamp-2 mb-3 leading-relaxed">
                     {product.description}
                   </p>
                 </div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-3 pt-2 border-t border-white/5">
-                    <span className="text-base font-extrabold text-white font-mono">
+                  <div className="flex items-center justify-between mb-3 pt-2.5 border-t border-white/[0.06]">
+                    <span className="text-sm font-semibold text-zinc-100 font-mono tabular-nums">
                       {formatCurrency(product.price)}
                     </span>
-                    <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded">
+                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
                       In Stock
                     </span>
                   </div>
@@ -90,29 +89,29 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
                     <button
                       type="button"
                       onClick={() => onAddToCart(product)}
-                      className="w-full py-2 px-3 rounded-lg text-xs font-semibold bg-white/5 border border-white/10 text-white hover:bg-primary hover:text-[#080D1B] hover:border-primary transition-all duration-200 flex items-center justify-center gap-1.5"
+                      className="w-full py-2 px-3 rounded-md text-xs font-medium bg-zinc-100 text-zinc-950 hover:bg-white transition-colors flex items-center justify-center gap-1.5"
                     >
-                      <Plus className="w-3.5 h-3.5" />
+                      <Plus className="w-3.5 h-3.5" strokeWidth={1.5} />
                       <span>Add to Cart</span>
                     </button>
                   ) : (
-                    <div className="flex items-center justify-between bg-primary/10 border border-primary/30 rounded-lg p-1">
+                    <div className="flex items-center justify-between bg-zinc-900 border border-white/10 rounded-md p-1">
                       <button
                         type="button"
                         onClick={() => onUpdateQuantity(product.id, quantity - 1)}
-                        className="w-7 h-7 rounded bg-[#080D1B] text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                        className="w-7 h-7 rounded bg-zinc-800 text-zinc-200 flex items-center justify-center hover:bg-zinc-700 transition-colors"
                       >
-                        <Minus className="w-3 h-3" />
+                        <Minus className="w-3 h-3" strokeWidth={1.5} />
                       </button>
-                      <span className="text-xs font-bold text-primary font-mono">
+                      <span className="text-xs font-mono font-medium text-zinc-200 tabular-nums">
                         {quantity} in Cart
                       </span>
                       <button
                         type="button"
                         onClick={() => onUpdateQuantity(product.id, quantity + 1)}
-                        className="w-7 h-7 rounded bg-[#080D1B] text-white flex items-center justify-center hover:bg-white/20 transition-colors"
+                        className="w-7 h-7 rounded bg-zinc-800 text-zinc-200 flex items-center justify-center hover:bg-zinc-700 transition-colors"
                       >
-                        <Plus className="w-3 h-3" />
+                        <Plus className="w-3 h-3" strokeWidth={1.5} />
                       </button>
                     </div>
                   )}

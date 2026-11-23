@@ -103,15 +103,15 @@ export const LiveRiskFeed: React.FC<LiveRiskFeedProps> = ({
   };
 
   return (
-    <div className="rounded-2xl bg-secondary-bg/90 border border-card-border overflow-hidden shadow-xl">
+    <div className="rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 overflow-hidden backdrop-blur-xl shadow-xl">
       {/* Table Control Header */}
-      <div className="p-5 border-b border-card-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-5 border-b border-white/5 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-primary" />
+            <Sparkles className="w-4 h-4 text-pink-400" />
             Live Risk Feed & Evaluated Orders
           </h3>
-          <p className="text-xs text-muted">
+          <p className="text-xs text-slate-400">
             Click any row to expand AI address diagnostics, detected risk flags & historical reasons.
           </p>
         </div>
@@ -125,20 +125,20 @@ export const LiveRiskFeed: React.FC<LiveRiskFeedProps> = ({
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               placeholder="Search buyer, phone..."
-              className="bg-[#080D1B] border border-card-border focus:border-primary rounded-xl pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 w-full sm:w-48 transition-colors"
+              className="bg-white/[0.04] border border-white/10 focus:border-purple-400 rounded-full pl-9 pr-3 py-1.5 text-xs text-white placeholder-slate-500 w-full sm:w-48 transition-colors"
             />
           </div>
 
           {/* Filter Pills */}
-          <div className="flex items-center p-1 rounded-xl bg-[#080D1B] border border-card-border">
+          <div className="flex items-center p-1 rounded-full bg-white/[0.04] border border-white/10">
             {["ALL", "LOW", "MEDIUM", "HIGH"].map((level) => (
               <button
                 key={level}
                 onClick={() => onFilterChange(level)}
-                className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition-all ${
+                className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
                   activeFilter === level
-                    ? "bg-primary text-[#080D1B] shadow-cyan-glow"
-                    : "text-muted hover:text-white"
+                    ? "bg-white text-black shadow-md shadow-white/10"
+                    : "text-slate-400 hover:text-white"
                 }`}
               >
                 {level}
@@ -151,7 +151,7 @@ export const LiveRiskFeed: React.FC<LiveRiskFeedProps> = ({
       {/* Orders Table */}
       <div className="overflow-x-auto">
         <table className="w-full text-left text-xs">
-          <thead className="bg-[#080D1B]/70 text-slate-400 font-mono text-[11px] border-b border-white/5 uppercase">
+          <thead className="bg-white/[0.02] text-slate-400 font-mono text-[11px] border-b border-white/5 uppercase">
             <tr>
               <th className="py-3 px-4">Customer</th>
               <th className="py-3 px-4">Cart Value</th>

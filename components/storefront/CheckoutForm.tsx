@@ -36,19 +36,19 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
 }) => {
   return (
     <form onSubmit={onSubmit} className="space-y-6" autoComplete="off" suppressHydrationWarning>
-      <div className="rounded-2xl bg-secondary-bg/90 border border-card-border p-6 shadow-xl" suppressHydrationWarning>
+      <div className="rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 p-6 sm:p-7 backdrop-blur-xl shadow-xl" suppressHydrationWarning>
         {/* Header */}
-        <div className="flex items-center justify-between pb-4 border-b border-card-border mb-6">
+        <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20">
+            <div className="p-2 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
               <MapPin className="w-5 h-5" />
             </div>
             <div>
               <h3 className="text-base font-bold text-white">Shipping & Contact Details</h3>
-              <p className="text-xs text-muted">Enter delivery destination for real-time risk assessment</p>
+              <p className="text-xs text-slate-400">Enter delivery destination for real-time risk assessment</p>
             </div>
           </div>
-          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
             SSL 256-Bit Encrypted
           </span>
         </div>
@@ -278,7 +278,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
         </div>
 
         {/* Order Summary & Place Order Button */}
-        <div className="p-4 rounded-xl bg-[#080D1B] border border-white/5 space-y-3">
+        <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/5 space-y-3">
           <div className="flex justify-between items-center text-xs text-slate-300">
             <span>Selected Items ({cart.reduce((a, b) => a + b.quantity, 0)}):</span>
             <span className="font-mono text-white">{formatCurrency(cartValue)}</span>
@@ -290,7 +290,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
 
           <div className="pt-2 border-t border-white/10 flex justify-between items-center">
             <span className="text-sm font-bold text-white">Cart Total:</span>
-            <span className="text-xl font-extrabold text-primary font-mono">
+            <span className="text-xl font-black text-pink-400 font-mono">
               {formatCurrency(cartValue)}
             </span>
           </div>
@@ -299,11 +299,11 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({
             type="submit"
             suppressHydrationWarning
             disabled={isLoading || cart.length === 0}
-            className="w-full mt-3 py-3.5 px-6 rounded-xl font-bold text-sm bg-gradient-to-r from-primary via-[#00c8f8] to-secondary text-[#080D1B] hover:opacity-95 transition-all shadow-cyan-glow flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full mt-3 py-3.5 px-6 rounded-full font-bold text-sm bg-white text-black hover:bg-slate-200 transition-all shadow-xl shadow-white/10 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <ShieldAlert className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+            <ShieldAlert className="w-4 h-4 text-black group-hover:rotate-12 transition-transform" />
             <span>{isLoading ? "Evaluating Risk Engine..." : `Place Order • ${formatCurrency(cartValue)}`}</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
       </div>

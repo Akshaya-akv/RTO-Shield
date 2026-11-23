@@ -27,30 +27,30 @@ export const PersonaBar: React.FC<PersonaBarProps> = ({
   };
 
   return (
-    <div className="w-full mb-8 p-5 rounded-2xl bg-gradient-to-r from-secondary-bg via-[#121E36] to-secondary-bg border border-primary/30 shadow-cyan-glow relative overflow-hidden">
-      {/* Glow element */}
-      <div className="absolute top-0 right-0 w-64 h-32 bg-primary/10 blur-3xl pointer-events-none"></div>
+    <div className="w-full mb-8 p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 shadow-[0_0_35px_rgba(168,85,247,0.15)] backdrop-blur-xl relative overflow-hidden">
+      {/* Ambient Glow */}
+      <div className="absolute top-0 right-0 w-64 h-32 bg-gradient-to-br from-purple-600/15 via-pink-600/10 to-transparent blur-3xl pointer-events-none" />
 
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2 mb-4">
         <div className="flex items-center gap-2">
-          <div className="p-1.5 rounded-lg bg-primary/20 text-primary border border-primary/40 animate-pulse">
+          <div className="p-1.5 rounded-xl bg-purple-500/20 text-purple-300 border border-purple-500/40 animate-pulse">
             <Zap className="w-4 h-4" />
           </div>
           <div>
             <h3 className="text-sm sm:text-base font-bold text-white tracking-wide flex items-center gap-2">
               ⚡ TRY LIVE DEMO SCENARIOS
-              <span className="text-[10px] font-mono uppercase bg-primary/20 text-primary px-2 py-0.5 rounded-full border border-primary/30">
+              <span className="text-[10px] font-mono uppercase bg-purple-500/20 text-purple-300 px-2.5 py-0.5 rounded-full border border-purple-500/30">
                 1-CLICK AUTOFILL
               </span>
             </h3>
-            <p className="text-xs text-muted">
+            <p className="text-xs text-slate-400">
               Select a persona to populate checkout, test AI risk detection, and trigger dynamic interventions.
             </p>
           </div>
         </div>
 
         <div className="text-xs text-slate-400 flex items-center gap-1.5 self-end md:self-auto">
-          <Sparkles className="w-3.5 h-3.5 text-primary" />
+          <Sparkles className="w-3.5 h-3.5 text-pink-400" />
           <span>Judges fast-track test panel</span>
         </div>
       </div>
@@ -67,10 +67,10 @@ export const PersonaBar: React.FC<PersonaBarProps> = ({
               suppressHydrationWarning
               onClick={() => onSelectPersona(persona)}
               className={cn(
-                "group relative p-3.5 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between",
+                "group relative p-3.5 rounded-2xl border text-left transition-all duration-200 flex flex-col justify-between",
                 isSelected
-                  ? "bg-[#182846] border-primary shadow-[0_0_20px_rgba(0,212,255,0.3)] ring-1 ring-primary"
-                  : "bg-secondary-bg/90 border-card-border hover:border-primary/40 hover:bg-[#14223d]"
+                  ? "bg-white/[0.08] border-pink-400/80 shadow-[0_0_25px_rgba(217,70,239,0.35)] ring-1 ring-pink-400"
+                  : "bg-white/[0.02] border-white/10 hover:border-purple-400/50 hover:bg-white/[0.05]"
               )}
             >
               <div>

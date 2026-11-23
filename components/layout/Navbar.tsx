@@ -30,42 +30,42 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-card-border bg-[#080D1B]/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-[#07070A]/85 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo & Tagline */}
         <div className="flex items-center gap-3">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary via-secondary to-[#00D4FF] p-[1.5px] shadow-cyan-glow transition-transform group-hover:scale-105">
-              <div className="w-full h-full bg-[#080D1B] rounded-[10px] flex items-center justify-center">
-                <ShieldAlert className="w-5 h-5 text-primary" />
+            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-purple-500 via-fuchsia-500 to-[#00D4FF] p-[1.5px] shadow-[0_0_20px_rgba(217,70,239,0.35)] transition-transform group-hover:scale-105">
+              <div className="w-full h-full bg-[#0c0a14] rounded-[14px] flex items-center justify-center">
+                <ShieldAlert className="w-5 h-5 text-pink-400" />
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-lg tracking-wider text-white">
-                  RTO<span className="text-primary">-SHIELD</span>
+                <span className="font-extrabold text-lg tracking-wider text-white">
+                  RTO<span className="bg-gradient-to-r from-purple-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent">-SHIELD</span>
                 </span>
-                <span className="text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/30 tracking-wider">
+                <span className="text-[10px] uppercase font-bold px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30 tracking-wider">
                   AI DEFENSE
                 </span>
               </div>
-              <p className="text-[11px] text-muted hidden sm:block">Stop Fake Orders. Save Real Revenue.</p>
+              <p className="text-[11px] text-slate-400 hidden sm:block">Stop Fake Orders. Save Real Revenue.</p>
             </div>
           </Link>
         </div>
 
         {/* View Switcher Tabs */}
-        <div className="flex items-center p-1 rounded-xl bg-secondary-bg/90 border border-card-border">
+        <div className="flex items-center p-1 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md">
           <Link
             href="/storefront"
             className={cn(
-              "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200",
+              "flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
               isStorefront
-                ? "bg-primary text-[#080D1B] font-semibold shadow-cyan-glow"
-                : "text-muted hover:text-white hover:bg-white/5"
+                ? "bg-white text-black font-bold shadow-lg shadow-white/10"
+                : "text-slate-400 hover:text-white hover:bg-white/5"
             )}
           >
-            <ShoppingBag className="w-4 h-4" />
+            <ShoppingBag className="w-3.5 h-3.5" />
             <span className="hidden md:inline">Storefront</span>
             <span className="md:hidden">Store</span>
           </Link>
@@ -73,13 +73,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
           <Link
             href="/dashboard"
             className={cn(
-              "flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-medium transition-all duration-200",
+              "flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200",
               isDashboard
-                ? "bg-primary text-[#080D1B] font-semibold shadow-cyan-glow"
-                : "text-muted hover:text-white hover:bg-white/5"
+                ? "bg-white text-black font-bold shadow-lg shadow-white/10"
+                : "text-slate-400 hover:text-white hover:bg-white/5"
             )}
           >
-            <LayoutDashboard className="w-4 h-4" />
+            <LayoutDashboard className="w-3.5 h-3.5" />
             <span className="hidden md:inline">Merchant Command</span>
             <span className="md:hidden">Dashboard</span>
           </Link>
@@ -88,8 +88,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
         {/* Live Demo Status & Actions */}
         <div className="flex items-center gap-3">
           <div className="hidden xl:flex flex-col text-right">
-            <span className="text-[10px] font-mono text-primary font-semibold">CODE TO CART · KARTAI '26</span>
-            <span className="text-[9px] text-muted">Builder: Akshaya Mirudha M</span>
+            <span className="text-[10px] font-mono text-purple-400 font-semibold">CODE TO CART · KARTAI '26</span>
+            <span className="text-[9px] text-slate-400">Builder: Akshaya Mirudha M</span>
           </div>
 
           <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs">
@@ -100,9 +100,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onResetDemo }) => {
           <button
             onClick={handleQuickReset}
             title="Reset Seeded Demo Data"
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-slate-300 bg-secondary-bg/80 border border-card-border hover:border-primary/50 hover:text-white transition-all hover:shadow-cyan-glow"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-slate-300 bg-white/5 border border-white/10 hover:border-pink-500/50 hover:text-white transition-all shadow-sm"
           >
-            <RefreshCw className="w-3.5 h-3.5 text-primary" />
+            <RefreshCw className="w-3.5 h-3.5 text-pink-400" />
             <span className="hidden sm:inline">Reset Demo</span>
           </button>
         </div>

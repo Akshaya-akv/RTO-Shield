@@ -56,36 +56,36 @@ export const ThresholdSlider: React.FC<ThresholdSliderProps> = ({
   };
 
   return (
-    <div className="rounded-2xl bg-secondary-bg/90 border border-card-border p-6 shadow-xl mb-8">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-card-border mb-4">
+    <div className="rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 p-6 backdrop-blur-xl shadow-xl mb-8">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/5 mb-4">
         <div className="flex items-center gap-2.5">
-          <div className="p-2 rounded-xl bg-primary/10 text-primary border border-primary/20">
+          <div className="p-2 rounded-2xl bg-purple-500/10 text-purple-400 border border-purple-500/30 shadow-[0_0_15px_rgba(168,85,247,0.2)]">
             <Sliders className="w-5 h-5" />
           </div>
           <div>
             <h3 className="text-base font-bold text-white flex items-center gap-2">
               Merchant Risk Intervention Threshold
-              <span className="text-[10px] font-mono text-primary bg-primary/10 px-2 py-0.5 rounded border border-primary/20">
+              <span className="text-[10px] font-mono text-purple-300 bg-purple-500/10 px-2.5 py-0.5 rounded-full border border-purple-500/30">
                 DYNAMIC POLICY
               </span>
             </h3>
-            <p className="text-xs text-muted">
+            <p className="text-xs text-slate-400">
               Configure cutoff score for triggering mandatory COD restriction & ₹50 UPI conversion incentive.
             </p>
           </div>
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="flex items-baseline gap-1.5 bg-[#080D1B] px-3.5 py-1.5 rounded-xl border border-card-border">
-            <span className="text-xs text-muted">Active Threshold:</span>
-            <span className="text-xl font-extrabold text-primary font-mono">{threshold}</span>
-            <span className="text-[10px] text-muted">/ 100</span>
+          <div className="flex items-baseline gap-1.5 bg-white/[0.04] px-4 py-1.5 rounded-full border border-white/10">
+            <span className="text-xs text-slate-400">Active:</span>
+            <span className="text-xl font-black text-pink-400 font-mono">{threshold}</span>
+            <span className="text-[10px] text-slate-500">/ 100</span>
           </div>
 
           <button
             onClick={handleApplyThreshold}
             disabled={isSaving}
-            className="py-2 px-3.5 rounded-xl text-xs font-bold bg-primary text-[#080D1B] hover:opacity-90 transition-all shadow-cyan-glow flex items-center gap-1.5"
+            className="py-2 px-5 rounded-full text-xs font-bold bg-white text-black hover:bg-slate-200 transition-all shadow-lg shadow-white/10 flex items-center gap-1.5 disabled:opacity-50"
           >
             <Check className="w-3.5 h-3.5" />
             <span>{isSaving ? "Saving..." : "Apply Policy"}</span>
@@ -103,22 +103,22 @@ export const ThresholdSlider: React.FC<ThresholdSliderProps> = ({
             step={1}
             value={threshold}
             onChange={(e) => handleSliderChange(parseInt(e.target.value, 10))}
-            className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-primary"
+            className="w-full h-2 bg-[#1b172a] rounded-lg appearance-none cursor-pointer accent-pink-500"
           />
           <div className="flex justify-between text-[10px] text-slate-400 font-mono mt-2">
             <span>50 (Aggressive Protection)</span>
-            <span className="text-primary font-bold">75 (Recommended Standard)</span>
+            <span className="text-purple-300 font-bold">75 (Recommended Standard)</span>
             <span>95 (Permissive / Relaxed)</span>
           </div>
         </div>
 
         {/* Dynamic Explanation Box */}
-        <div className="p-3 rounded-xl bg-[#080D1B] border border-white/5 flex items-start gap-2.5 text-xs text-slate-300">
-          <Info className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+        <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/5 flex items-start gap-2.5 text-xs text-slate-300">
+          <Info className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
           <div>
             <span className="font-semibold text-white">Current Impact: </span>
             <span>{getPolicyMeaning(threshold)}</span>
-            <span className="block text-[11px] text-muted mt-0.5">
+            <span className="block text-[11px] text-slate-500 mt-0.5">
               Note: Changing threshold adjusts future checkout intervention policies instantly without altering historical raw scores.
             </span>
           </div>

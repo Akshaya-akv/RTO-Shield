@@ -31,13 +31,13 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
       {/* 1. Risk Distribution Chart */}
-      <div className="rounded-2xl bg-secondary-bg/90 border border-card-border p-5 flex flex-col justify-between">
-        <div className="flex items-center justify-between pb-3 border-b border-card-border mb-2">
+      <div className="rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 p-5 flex flex-col justify-between backdrop-blur-xl shadow-xl">
+        <div className="flex items-center justify-between pb-3 border-b border-white/5 mb-2">
           <div className="flex items-center gap-2">
-            <PieIcon className="w-4 h-4 text-primary" />
+            <PieIcon className="w-4 h-4 text-purple-400" />
             <h3 className="text-sm font-bold text-white">Risk Distribution</h3>
           </div>
-          <span className="text-[10px] font-mono text-muted uppercase">Evaluated Orders</span>
+          <span className="text-[10px] font-mono text-slate-400 uppercase">Evaluated Orders</span>
         </div>
 
         <div className="h-56 w-full relative flex items-center justify-center">
@@ -45,9 +45,9 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
             <PieChart>
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "#080D1B",
-                  borderColor: "rgba(0, 212, 255, 0.2)",
-                  borderRadius: "8px",
+                  backgroundColor: "#0c0a14",
+                  borderColor: "rgba(168, 85, 247, 0.3)",
+                  borderRadius: "12px",
                   fontSize: "12px",
                   color: "#fff",
                 }}
@@ -84,13 +84,13 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
       </div>
 
       {/* 2. Payment Method Conversion */}
-      <div className="rounded-2xl bg-secondary-bg/90 border border-card-border p-5 flex flex-col justify-between">
-        <div className="flex items-center justify-between pb-3 border-b border-card-border mb-2">
+      <div className="rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 p-5 flex flex-col justify-between backdrop-blur-xl shadow-xl">
+        <div className="flex items-center justify-between pb-3 border-b border-white/5 mb-2">
           <div className="flex items-center gap-2">
-            <BarChart3 className="w-4 h-4 text-secondary" />
+            <BarChart3 className="w-4 h-4 text-pink-400" />
             <h3 className="text-sm font-bold text-white">Checkout Outcomes</h3>
           </div>
-          <span className="text-[10px] font-mono text-secondary uppercase">Conversion Engine</span>
+          <span className="text-[10px] font-mono text-purple-300 uppercase">Conversion Engine</span>
         </div>
 
         <div className="h-56 w-full">
@@ -101,9 +101,9 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
               <YAxis tick={{ fill: "#94a3b8", fontSize: 10 }} allowDecimals={false} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "#080D1B",
-                  borderColor: "rgba(118, 103, 255, 0.2)",
-                  borderRadius: "8px",
+                  backgroundColor: "#0c0a14",
+                  borderColor: "rgba(217, 70, 239, 0.3)",
+                  borderRadius: "12px",
                   fontSize: "12px",
                   color: "#fff",
                 }}
@@ -123,8 +123,8 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
       </div>
 
       {/* 3. Order Activity Timeline */}
-      <div className="rounded-2xl bg-secondary-bg/90 border border-card-border p-5 flex flex-col justify-between">
-        <div className="flex items-center justify-between pb-3 border-b border-card-border mb-2">
+      <div className="rounded-2xl sm:rounded-3xl bg-white/[0.03] border border-white/10 p-5 flex flex-col justify-between backdrop-blur-xl shadow-xl">
+        <div className="flex items-center justify-between pb-3 border-b border-white/5 mb-2">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-4 h-4 text-emerald-400" />
             <h3 className="text-sm font-bold text-white">Order Telemetry Trend</h3>
@@ -137,12 +137,12 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
             <AreaChart data={activityTimeline} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
               <defs>
                 <linearGradient id="orderGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#00D4FF" stopOpacity={0.4} />
-                  <stop offset="95%" stopColor="#00D4FF" stopOpacity={0.0} />
+                  <stop offset="5%" stopColor="#A855F7" stopOpacity={0.4} />
+                  <stop offset="95%" stopColor="#A855F7" stopOpacity={0.0} />
                 </linearGradient>
                 <linearGradient id="convertGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#7667FF" stopOpacity={0.4} />
-                  <stop offset="95%" stopColor="#7667FF" stopOpacity={0.0} />
+                  <stop offset="5%" stopColor="#D946EF" stopOpacity={0.4} />
+                  <stop offset="95%" stopColor="#D946EF" stopOpacity={0.0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
@@ -150,9 +150,9 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
               <YAxis tick={{ fill: "#94a3b8", fontSize: 10 }} allowDecimals={false} />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "#080D1B",
-                  borderColor: "rgba(0, 212, 255, 0.2)",
-                  borderRadius: "8px",
+                  backgroundColor: "#0c0a14",
+                  borderColor: "rgba(168, 85, 247, 0.3)",
+                  borderRadius: "12px",
                   fontSize: "12px",
                   color: "#fff",
                 }}
@@ -160,7 +160,7 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
               <Area
                 type="monotone"
                 dataKey="orders"
-                stroke="#00D4FF"
+                stroke="#A855F7"
                 strokeWidth={2}
                 fillOpacity={1}
                 fill="url(#orderGrad)"
@@ -169,7 +169,7 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
               <Area
                 type="monotone"
                 dataKey="conversions"
-                stroke="#7667FF"
+                stroke="#D946EF"
                 strokeWidth={2}
                 fillOpacity={1}
                 fill="url(#convertGrad)"
@@ -179,12 +179,12 @@ export const AnalyticsCharts: React.FC<AnalyticsChartsProps> = ({
           </ResponsiveContainer>
         </div>
 
-        <div className="flex justify-between items-center text-[11px] text-muted pt-2 border-t border-white/5">
+        <div className="flex justify-between items-center text-[11px] text-slate-400 pt-2 border-t border-white/5">
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-0.5 bg-primary rounded" /> Orders
+            <span className="w-2.5 h-0.5 bg-purple-400 rounded" /> Orders
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-0.5 bg-secondary rounded" /> Converted
+            <span className="w-2.5 h-0.5 bg-pink-400 rounded" /> Converted
           </span>
         </div>
       </div>
